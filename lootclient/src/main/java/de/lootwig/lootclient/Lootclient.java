@@ -1,4 +1,3 @@
-
 package de.lootwig.lootclient;
 
 import com.mojang.blaze3d.platform.InputConstants;
