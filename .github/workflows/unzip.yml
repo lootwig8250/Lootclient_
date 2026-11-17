@@ -1,0 +1,14 @@
+name: Unzip
+on: workflow_dispatch
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: unzip -o deine-datei.zip -d . && rm deine-datei.zip
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "unzipped" || true
+          git push
