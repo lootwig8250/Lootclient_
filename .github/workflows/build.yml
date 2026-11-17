@@ -36,7 +36,7 @@ jobs:
       - name: Upload mod JAR
         uses: actions/upload-artifact@v4
         with:
-          name: lootclient
-          path: build/libs/*.jar
+          name: lootclient-1.0.0
+          path: '**/build/libs/*.jar'
           if-no-files-found: error
           retention-days: 14
