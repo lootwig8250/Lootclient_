@@ -1,3 +1,4 @@
+
 package de.lootwig.lootclient;
 
 import com.mojang.blaze3d.platform.InputConstants;
@@ -59,7 +60,7 @@ public final class Lootclient implements ClientModInitializer {
         if (LootclientScreen.showFps) {
             drawHudText(
                     graphics, client,
-                    "FPS: " + client.getFps(),
+                    LootclientPerformance.getFpsText(client.getFps()),
                     0xFFFFFFFF, y
             );
             y += 12;
@@ -80,12 +81,8 @@ public final class Lootclient implements ClientModInitializer {
         if (LootclientScreen.showArmor) {
             int x = 8;
 
-            EquipmentSlot[] armorSlots = {
-                    EquipmentSlot.HEAD,
-                    EquipmentSlot.CHEST,
-                    EquipmentSlot.LEGS,
-                    EquipmentSlot.FEET
-            };
+            EquipmentSlot[] armorSlots =
+                    LootclientPerformance.getArmorSlots();
 
             for (EquipmentSlot slot : armorSlots) {
                 ItemStack stack = client.player.getItemBySlot(slot);
